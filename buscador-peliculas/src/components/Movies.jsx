@@ -20,10 +20,10 @@ function NoMovieResults () {
 
 export function Movies ({ movies }) {
   // const hasMovies = movies.length > 0 !!!CHEQUEAR ESTO
-  const hasMovies = movies !== undefined
+  // const hasMovies = movies !== undefined
 
   return (
-    hasMovies
+    movies
       ? (<ListOfMovies movies={movies} />)
       : (<NoMovieResults />)
 

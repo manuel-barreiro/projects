@@ -1,4 +1,4 @@
-import withResults from '../mocks/with-results.json'
+// import withResults from '../mocks/with-results.json'
 import withoutResults from '../mocks/no-results.json'
 import { useState } from 'react'
 
@@ -14,9 +14,12 @@ export function useMovies ({ search }) {
     poster: movie.Poster
   }))
 
-  const getMovies = () => {
+  const getMovies = async () => {
     if (search) {
-      setResponseMovies(withResults)
+      // setResponseMovies(withResults)
+      const res = await fetch(`https://www.omdbapi.com/?apikey=14142394&s=${search}`)
+      const data = await res.json()
+      setResponseMovies(data)
     } else {
       setResponseMovies(withoutResults)
     }
